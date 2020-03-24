@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, _______,
         TG(1),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_BSLS, KC_ENT,
         KC_BSPC, KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  _______, KC_RSFT, KC_SLSH, KC_PEQL,
-        _______, KC_LGUI, KC_LALT,                   KC_LEFT, KC_SPC, KC_RIGHT,                  LT(1, KC_BTN1), KC_RGUI, KC_LALT, KC_LCTL, KC_APP
+        _______, KC_LGUI,   KC_LALT,            KC_LEFT,   KC_SPC,   KC_RIGHT,             LT(1, KC_BTN1),   KC_RGUI, KC_LALT, KC_LCTL, KC_APP
      ),
 
 	[1] = LAYOUT_all(
@@ -48,7 +48,7 @@ void flip_num_key_shift(uint16_t keycode, bool pressed) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch(keycode) { // Symbols first
+  switch(keycode) { // )-( when pressed 0-9 when pressed w/ Shift
     case (KC_0):
     case (KC_1):
     case (KC_2):
@@ -62,7 +62,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       flip_num_key_shift(keycode, record->event.pressed);
       return false; break;
     }
-    case(KC_NLCK): { // Numlock controls the top row
+    case(KC_NLCK): { // Numlock (or Symlock) controls the top row
       // TODO call register_lock_code here
 
       return false; break;
