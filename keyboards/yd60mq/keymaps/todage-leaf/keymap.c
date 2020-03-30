@@ -96,11 +96,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case (KC_6):
     case (KC_7):
     case (KC_8):
-    case (KC_9): { // )-( when pressed 0-9 when pressed w/ Shift
+    case (KC_9): { // )-( pressed, 0-9 pressed w/ Shift or Symlock active
       flip_num_key_shift(keycode, record->event.pressed);
       return false; break;
     }
-    case(SYM_LOCK): { // Numlock (or Symlock) controls the top row
+    case(SYM_LOCK): { // Symlock is to top row as Numlock is to Numpad
 
       todage_numlck_on = !todage_numlck_on;
 
